@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 //Via NuGet:
 //...(this is the 2nd iteration of this program; the first wasn't working for some reason and 
@@ -60,13 +61,10 @@ namespace Volser_Extractor_V2
         private void BtnExtract_Click(object sender, EventArgs e)
         {
             //Extract all text from the .pdf:
-            string strText = GetTextFromPDF();
-
-            //...for test poiposes:
-            Console.WriteLine(strText);
+            string strText = GetTextFromPDF();           
 
             //Function to put strText through a REGEX and return extracted VOLSERS:
-            strText = GetExtractedVolsers(strText);
+            string strVolsers = GetExtractedVolsers(strText);
 
             //Function to create file and save to same location as original file:
 
@@ -89,17 +87,18 @@ namespace Volser_Extractor_V2
                     text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
                 }
             }
-            //FOR TEST PURPOSES:
-            //Console.WriteLine(text);
 
             return text.ToString();
         }
 
         //Extract 9840-type tapes (from the ""EXTRACT and CREATE FILE" button):
-        //...perform some tests on the bomtin/bomtout extractor...
         public string GetExtractedVolsers(string strText)
         {
-            string strVolsers = "";
+            //Not working because the VOLSERS are in a row...maybe somehow put them in 
+            //separate rows?
+            string strVolsers = Regex.Match(strText, @"^[0-9]{6}$").ToString();
+
+            Console.WriteLine(strVolsers);
 
             return strVolsers;
         }

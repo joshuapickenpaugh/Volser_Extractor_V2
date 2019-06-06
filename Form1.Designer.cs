@@ -40,7 +40,7 @@
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowse.Location = new System.Drawing.Point(13, 13);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(437, 76);
+            this.btnBrowse.Size = new System.Drawing.Size(542, 76);
             this.btnBrowse.TabIndex = 0;
             this.btnBrowse.Text = "BROWSE";
             this.btnBrowse.UseVisualStyleBackColor = false;
@@ -50,9 +50,9 @@
             // 
             this.btnExtract.BackColor = System.Drawing.Color.Lime;
             this.btnExtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExtract.Location = new System.Drawing.Point(13, 294);
+            this.btnExtract.Location = new System.Drawing.Point(13, 223);
             this.btnExtract.Name = "btnExtract";
-            this.btnExtract.Size = new System.Drawing.Size(437, 76);
+            this.btnExtract.Size = new System.Drawing.Size(542, 76);
             this.btnExtract.TabIndex = 1;
             this.btnExtract.Text = "EXTRACT and CREATE FILE";
             this.btnExtract.UseVisualStyleBackColor = false;
@@ -63,7 +63,7 @@
             this.txtDisplay.Location = new System.Drawing.Point(13, 96);
             this.txtDisplay.Multiline = true;
             this.txtDisplay.Name = "txtDisplay";
-            this.txtDisplay.Size = new System.Drawing.Size(437, 192);
+            this.txtDisplay.Size = new System.Drawing.Size(542, 121);
             this.txtDisplay.TabIndex = 2;
             // 
             // openFileDialogBox
@@ -74,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 382);
+            this.ClientSize = new System.Drawing.Size(567, 311);
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.btnExtract);
             this.Controls.Add(this.btnBrowse);
