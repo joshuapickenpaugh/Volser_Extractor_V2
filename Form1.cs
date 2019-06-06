@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //Via NuGet:
+//...(this is the 2nd iteration of this program; the first wasn't working for some reason and 
+//not loading the below "iTextSharp" libraries. This is a carbon-copy of the first, 
+//I've no idea why this second now works. Keeping an eye on these "iTextSharp" libraries, they 
+//may be a problem). 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
@@ -62,7 +66,7 @@ namespace Volser_Extractor_V2
             Console.WriteLine(strText);
 
             //Function to put strText through a REGEX and return extracted VOLSERS:
-            GetExtractedVolsers(strText);
+            //GetExtractedVolsers(strText);
 
             //Function to create file and save to same location as original file:
 
@@ -90,11 +94,11 @@ namespace Volser_Extractor_V2
 
             return text.ToString();
         }
-        public string GetExtractedVolsers(strText)
-        {
-            string strVolsers = "";
+        //public string GetExtractedVolsers(strText)
+        //{
+        //    string strVolsers = "";
 
-            return strVolsers;
-        }
+        //    return strVolsers;
+        //}
     }
 }

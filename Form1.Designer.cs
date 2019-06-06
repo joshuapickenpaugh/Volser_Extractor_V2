@@ -36,21 +36,25 @@
             // 
             // btnBrowse
             // 
+            this.btnBrowse.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowse.Location = new System.Drawing.Point(13, 13);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(437, 76);
             this.btnBrowse.TabIndex = 0;
             this.btnBrowse.Text = "BROWSE";
-            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.UseVisualStyleBackColor = false;
             // 
             // btnExtract
             // 
+            this.btnExtract.BackColor = System.Drawing.Color.Lime;
+            this.btnExtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExtract.Location = new System.Drawing.Point(13, 294);
             this.btnExtract.Name = "btnExtract";
             this.btnExtract.Size = new System.Drawing.Size(437, 76);
             this.btnExtract.TabIndex = 1;
-            this.btnExtract.Text = "EXTRACT";
-            this.btnExtract.UseVisualStyleBackColor = true;
+            this.btnExtract.Text = "EXTRACT and CREATE FILE";
+            this.btnExtract.UseVisualStyleBackColor = false;
             // 
             // txtDisplay
             // 
@@ -72,7 +76,11 @@
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.btnExtract);
             this.Controls.Add(this.btnBrowse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Volser Extractor & File Creator";
             this.ResumeLayout(false);
             this.PerformLayout();
