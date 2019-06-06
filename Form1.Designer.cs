@@ -44,6 +44,7 @@
             this.btnBrowse.TabIndex = 0;
             this.btnBrowse.Text = "BROWSE";
             this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // btnExtract
             // 
@@ -55,6 +56,7 @@
             this.btnExtract.TabIndex = 1;
             this.btnExtract.Text = "EXTRACT and CREATE FILE";
             this.btnExtract.UseVisualStyleBackColor = false;
+            this.btnExtract.Click += new System.EventHandler(this.BtnExtract_Click);
             // 
             // txtDisplay
             // 

@@ -31,7 +31,7 @@ namespace Volser_Extractor_V2
 
         string strFileContentsAndPathAndName;
 
-        //"BROWSE FOR .PDF FILE" button:
+        //"BROWSE" button:
         private void BtnBrowse_Click(object sender, EventArgs e)
         {
             // Show the Windows dialog box:
@@ -51,12 +51,12 @@ namespace Volser_Extractor_V2
                 //If not correct file type, display messagebox:
                 else
                 {
-                    MessageBox.Show("NOT CORRECT FILE TYPE, PLEASE SELECT YOUR OUTBOUND REQ .PDF FILE");
+                    MessageBox.Show("NOT CORRECT FILE TYPE, PLEASE SELECT YOUR REQ .PDF FILE");
                 }
             }
         }
 
-        //"CREATE FILE" button:
+        //"EXTRACT and CREATE FILE" button:
         private void BtnExtract_Click(object sender, EventArgs e)
         {
             //Extract all text from the .pdf:
@@ -66,7 +66,7 @@ namespace Volser_Extractor_V2
             Console.WriteLine(strText);
 
             //Function to put strText through a REGEX and return extracted VOLSERS:
-            //GetExtractedVolsers(strText);
+            strText = GetExtractedVolsers(strText);
 
             //Function to create file and save to same location as original file:
 
@@ -94,11 +94,16 @@ namespace Volser_Extractor_V2
 
             return text.ToString();
         }
-        //public string GetExtractedVolsers(strText)
-        //{
-        //    string strVolsers = "";
 
-        //    return strVolsers;
-        //}
+        //Extract 9840-type tapes (from the ""EXTRACT and CREATE FILE" button):
+        //...perform some tests on the bomtin/bomtout extractor...
+        public string GetExtractedVolsers(string strText)
+        {
+            string strVolsers = "";
+
+            return strVolsers;
+        }
+
+
     }
 }
