@@ -8,18 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 
 //Via NuGet:
-//...(this is the 2nd iteration of this program; the first wasn't working for some reason and 
-//not loading the below "iTextSharp" libraries. This is a carbon-copy of the first, 
-//I've no idea why this second now works. Keeping an eye on these "iTextSharp" libraries, they 
-//may be a problem). 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 
 //Defined since "Path" was being used "ambigously":
 using Path = System.IO.Path;
+
 
 namespace Volser_Extractor_V2
 {
@@ -94,11 +92,22 @@ namespace Volser_Extractor_V2
         //Extract 9840-type tapes (from the ""EXTRACT and CREATE FILE" button):
         public string GetExtractedVolsers(string strText)
         {
-            //Not working because the VOLSERS are in a row...maybe somehow put them in 
-            //separate rows?
-            string strVolsers = Regex.Match(strText, @"^[0-9]{6}$").ToString();
+            //Reads the filecontents into an array:
+            string[] aryFileContents = File.ReadAllLines(strText);
 
-            Console.WriteLine(strVolsers);
+            //Used to apply a REGEX to aryFileContents in the FOREACH:
+            StringBuilder sbApplyRegex = new StringBuilder();
+
+            //Reads through the array, extracts the 6-digit numbers:
+            foreach (string filecontent in aryFileContents)
+            {
+                sbApplyRegex.Append(Regex.Match(filecontent, @"(?<!\d)\d{6}(?!\d)").ToString());
+                sbApplyRegex.Append(Environment.NewLine);
+            }
+
+            string strVolsers = sbApplyRegex.ToString();
+
+            Console.WriteLine(strVolsers);            
 
             return strVolsers;
         }
