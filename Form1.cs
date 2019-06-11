@@ -10,14 +10,8 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.IO;
 
-//Via NuGet:
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.parser;
-
 //Defined since "Path" was being used "ambigously":
 using Path = System.IO.Path;
-
 
 namespace Volser_Extractor_V2
 {
@@ -30,7 +24,7 @@ namespace Volser_Extractor_V2
 
         string strFileContentsAndPathAndName;
 
-        //"BROWSE" button:
+        //"BROWSE" button (used to look for ASCII-converted email in TOUT folder):
         private void BtnBrowse_Click(object sender, EventArgs e)
         {
             // Show the Windows dialog box:
@@ -40,26 +34,25 @@ namespace Volser_Extractor_V2
             {
                 strFileContentsAndPathAndName = openFileDialogBox.FileName;
 
-                //Tests for correct ".pdf" suffix:
+                //Tests for correct ".txt" suffix:
                 string strFileExtension = Path.GetExtension(strFileContentsAndPathAndName);
-                if (strFileExtension == ".pdf")
+                if (strFileExtension == ".txt")
                 {
-                    //Displays the filepath and filename in textbox:                    
-                    txtDisplay.Text = strFileContentsAndPathAndName;
+                    //Displays only the filepath and filename in textbox:                    
+                    txtDisplay.Text = strFileContentsAndPathAndName;                    
                 }
                 //If not correct file type, display messagebox:
                 else
                 {
-                    MessageBox.Show("NOT CORRECT FILE TYPE, PLEASE SELECT YOUR REQ .PDF FILE");
+                    MessageBox.Show("NOT CORRECT FILE TYPE, PLEASE SELECT YOUR BOMTIN.TXT or BOMTOUT.TXT FILE");
                 }
-            }
+            }            
         }
 
         //"EXTRACT and CREATE FILE" button:
         private void BtnExtract_Click(object sender, EventArgs e)
         {
-            //Extract all text from the .pdf:
-            string strText = GetTextFromPDF();           
+            string strText = "";
 
             //Function to put strText through a REGEX and return extracted VOLSERS:
             string strVolsers = GetExtractedVolsers(strText);
@@ -72,21 +65,6 @@ namespace Volser_Extractor_V2
 
             //Closes the app:
             this.Close();
-        }
-
-        //Below code from https://www.c-sharpcorner.com/blogs/reading-contents-from-pdf-word-text-files-in-c-sharp1
-        private string GetTextFromPDF()
-        {
-            StringBuilder text = new StringBuilder();
-            using (PdfReader reader = new PdfReader(strFileContentsAndPathAndName))
-            {
-                for (int i = 1; i <= reader.NumberOfPages; i++)
-                {
-                    text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
-                }
-            }
-
-            return text.ToString();
         }
 
         //Extract 9840-type tapes (from the ""EXTRACT and CREATE FILE" button):
